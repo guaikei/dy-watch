@@ -4,7 +4,7 @@
 
 | error_code | 退出码 | 含义 | Agent 必须做什么 |
 | --- | --- | --- | --- |
-| `AUTH_REQUIRED` / `AUTH_ERROR` | 3 | token 未配置 / 无效或过期 | **禁止重试**。引导到 [抖音舆情监控 TOKEN 开通入口](https://www.guaikei.com) 开通并配置 `GUAIKEI_API_TOKEN` |
+| `AUTH_REQUIRED` / `AUTH_ERROR` | 3 | token 未配置 / 无效或过期 | **禁止重试**。引导到 [抖音舆情预警API](https://www.guaikei.com) 开通并配置 `GUAIKEI_API_TOKEN` |
 | `PLAN_LIMIT` | 1 | 套餐单次条数超限（常见于包月 Token） | **禁止同参重试**。转述 `message`；可建议降低 `--limit`（视频搜索/用户搜索/作品≤30，评论≤50）或到官网升级按量；**须用户同意后再跑** |
 | `INSUFFICIENT_BALANCE` | 1 | 按量 Token 余额不足（含详情接口余额预检） | **禁止同参重试**。引导官网充值；不要改参数反复试 |
 | `RATE_LIMITED` | 1 | 短时间提交任务过多 | **禁止立即重试**。告知稍后；经用户同意后再跑 |
